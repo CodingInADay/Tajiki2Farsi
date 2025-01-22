@@ -1,0 +1,143 @@
+﻿<html lang="fa">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">	
+ 
+<SCRIPT LANGUAGE="JavaScript" TYPE="text/javascript"> 
+var letters = "ФИСВУАПРШОЛДӢТҲЗЙКҶЕГМҚЧНЯ0123456789 .ӮЮЖБХҒЭЁ\"";
+var morse = new Array(
+"ف","ــِـ","س","و","ــُـ","ــَـ",
+" پ","ر","ش","ــُـ","ل","دٖ",
+"ـِی","ت","ه","ز","ی","ک",
+"ج","ی","گ","م","ق","چ",
+"ن","یَ","0","1","2",
+"3","4","5","6","7",
+"8","9","  ",".","وُ",
+"یو","ژ","ب","خ","غ",
+"ای","یا","  ");
+function replace(string,text,by) {
+// Replaces text with by in string
+    var strLength = string.length, txtLength = text.length;
+    if ((strLength == 0) || (txtLength == 0)) return string;
+ 
+    var i = string.indexOf(text);
+    if ((!i) && (text != string.substring(0,txtLength))) return string;
+    if (i == -1) return string;حروف
+ 
+    var newstr = string.substring(0,i) + by;
+ 
+    if (i+txtLength < strLength)
+        newstr += replace(string.substring(i+txtLength,strLength),text,by);
+ 
+    return newstr;
+}
+function dilmaj(form) {
+form.output.value = "";
+var input = form.input.value.toUpperCase();
+output = "";
+for(count = 0; count < input.length; count++) {
+daChar = input.charAt(count);
+for (i = 0; i < letters.length; i++) {
+if (daChar == letters.charAt(i)) {
+output += morse[i] + "";
+break;
+      }
+   }
+}
+form.output.value = output;
+}
+</script>
+
+<noscript>
+<blockquote>
+<font size="3" color="#FF0000"><b>You do not have JavaScript enabled.</b></font><br>
+<font size="3" color="#000080"> جاوا اِسکریپت را در مرورگر فعال یا اجازه اجرا بدهید </font>
+</blockquote>
+</noscript>
+</head>
+
+<body style="background-color: #FFFFCC">
+<center><br><b><font color="brown">
+برگردان خط تاجـیکی به فارسی
+ <br><br>
+ 
+
+ 
+<form>  
+<textarea name="input" rows="7" wrap="physical" style="overflow-y: scroll; width: 98% ;" dir="ltr">Ин барнома метавонад матнҳои тоҷикиро ба хатти форсӣ баргардонад. Азбаски забони тоҷикӣ дорои калимаҳои гуногун ва махсус дар муқоиса бо Эрон аст, тарҷумаи Ҳарфҳои алифбо аз тарҷумаи калимаҳо беҳтар аст.</textarea><br><br>    
+<input type="button" value=" :: تبدیل به خط فارسی  :: " onClick="javascript:dilmaj(this.form)" style=" font-family: 'wenxue';font-size:large;font-weight:bold;color:blue;"><br>
+<br>
+<textarea  dir="rtl" name="output" cols="50" rows="12" wrap="physical" style="LINE-HEIGHT:40px ; overflow-y: scroll; width: 98% ; font-family: 'wenxue';font-size:x-large;font-weight:bold;color:green;" disabled></textarea> 
+</form>
+
+
+
+
+    <style>
+        * {
+            margin: 0;
+            padding: 0
+        }
+
+        img {
+            width: 100%
+        }
+
+        html {
+            background: #FFF;
+            height: 100%
+        }
+
+        body {
+            font-family: "wenxue", wenxue, wenxue, wenxue;
+            margin: 0 auto;
+            text-align: center;
+            width: 100%;
+            height: 100%;
+			direction: rtl;
+            background: #F95240 url(./bg.jpg)
+        }
+
+
+        html {
+            font-size: 4.6vh
+        }
+
+        #canvas {
+            position: fixed;
+            left: 0;
+            top: 0;
+            right: 0;
+            bottom: 0;
+            margin: auto;
+        }
+
+        a {
+            text-decoration: none
+        }
+
+        li, ul, ol {
+            list-style-type: none;
+            padding: 0;
+            margin: 0
+        }
+
+
+        @font-face {
+            font-family: 'wenxue';
+            src: url('wenxue.eot');
+            src: url('wenxue.eot'),
+            url('wenxue.woff'),
+            url('wenxue.ttf'),
+            url('wenxue.svg');
+        }
+
+        .font-wenxue {
+            font-family: 'wenxue';
+        }
+    </style>
+
+</body>
+
+ 
+</html>
